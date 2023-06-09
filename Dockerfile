@@ -30,4 +30,8 @@ RUN \
 COPY ./backend /backend
 COPY --from=build /frontend/dist/ /frontend
 
+ADD ./mlt .mlt
+RUN apt update && apt -y install cmake build-essential
+RUN cd mlt && cmake . && cmake --build . && cmake --install .
+
 CMD ["./manage", "start"]
