@@ -18,12 +18,6 @@ jobs:
       with:
         repository: mltframework/mlt
         path: mlt
-    
-    - name: Build mlt
-      run: |
-        cmake .
-        cmake --build .
-        cmake --install .
         
     - name: Build the Docker image
       run: docker build . --file Dockerfile --tag my-image-name:$(date +%s)
